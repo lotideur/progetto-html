@@ -1,31 +1,27 @@
+@font-face{
+    font-family:"jojo";
+    src:url(jojo.ttf); 
+}
 *{
-    font-family: "Jojo V2";
+    font-family: 'arial';
     box-sizing: border-box;
 }
-header{text-align: center; position: relative;}
+body{background: rgb(131, 6, 181);}
+header{text-align: center; position: relative; width: 100%; padding: 0px 0px 35px 0px;}
 header ul{list-style-type: none; display: none;}
-header ul li{padding: 0px 35px 0px 0px;}
+header ul li{padding: 5px 35px 0px 0px;}
 a{
     text-decoration: none;
-    color: red;
+    color: black;
 }
-@font-face {
-    font-family: "Jojo V2";
-    src: url("https://db.onlinewebfonts.com/t/7fce2894be44ee6781c65f67fc4a5b10.eot");
-    src: url("https://db.onlinewebfonts.com/t/7fce2894be44ee6781c65f67fc4a5b10.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/7fce2894be44ee6781c65f67fc4a5b10.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/7fce2894be44ee6781c65f67fc4a5b10.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/7fce2894be44ee6781c65f67fc4a5b10.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/7fce2894be44ee6781c65f67fc4a5b10.svg#Jojo V2")format("svg");
-}
+video { display: block; width: 100%; height: auto;}
+img{width: 100%;}
 .tenda{
-    border: 1px solid red;
     width: 160px;
+    height: 50px;
     position: absolute;
-    right: 50%;
+    right: 50%; bottom: 0;
     transform: translateX(50%);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+
 }
-.tenda:hover ul{display: block;}
+.tenda:hover ul{display: block; transform: translateY(-10px);}
