@@ -1,27 +1,46 @@
 @font-face{
     font-family:"jojo";
-    src:url(jojo.ttf); 
+    src:url(jojo.ttf) format(truetype); 
 }
 *{
-    font-family: 'arial';
+    font-family: 'jojo';
     box-sizing: border-box;
 }
 body{background: rgb(131, 6, 181);}
 header{text-align: center; position: relative; width: 100%; padding: 0px 0px 35px 0px;}
-header ul{list-style-type: none; display: none;}
-header ul li{padding: 5px 35px 0px 0px;}
+.tendato{list-style-type: none; display: none; width: 100%;}
+.sezione{font-size: 10px; margin: 5px 0px 0px 0px; transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)}
+.sezione:hover{background: rgb(157, 29, 207);}
 a{
     text-decoration: none;
     color: black;
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 video { display: block; width: 100%; height: auto;}
 img{width: 100%;}
 .tenda{
-    width: 160px;
-    height: 50px;
+    width: 170px;
+    height: 75px;
     position: absolute;
     right: 50%; bottom: 0;
     transform: translateX(50%);
+}
+.tenda:hover .tendato{display: block; transform: translateY(-10px);}
+.cover{position: relative;}
+.introduzioneh{text-align: center;text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000; color: rgb(198, 137, 24);position: absolute; bottom: 3%; right: 1%; max-width: 410px;}
+.introduzioneh a{color: rgb(198, 137, 24); text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000; color: rgb(198, 137, 24)}
+.bottoneh{
+    padding: 5px; 
+    border: 5px solid rgb(198, 137, 24);
+    background: yellow;
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 
 }
-.tenda:hover ul{display: block; transform: translateY(-10px);}
+.bottoneh:hover{background: rgb(198, 137, 24); border: 5px solid yellow;} 
+.bottoneh:hover a{color: yellow;}
+@media(max-width: 900px){
+    .introduzioneh{font-size: 10px; max-width: 300px;}
+}
+@media(min-width: 900px) and (max-width:1100px){
+    .introduzioneh{font-size: 13px; max-width: 350px;}
+}
