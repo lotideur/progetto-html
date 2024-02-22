@@ -19,7 +19,7 @@ a{
 video { display: block; width: 100%; height: auto;}
 img{width: 100%;}
 .tenda{
-    width: 170px;
+    width: 155px;
     height: 75px;
     position: absolute;
     right: 50%; bottom: 0;
@@ -27,17 +27,28 @@ img{width: 100%;}
 }
 .tenda:hover .tendato{display: block; transform: translateY(-10px);}
 .cover{position: relative;}
-.introduzioneh{text-align: center;text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000; color: rgb(198, 137, 24);position: absolute; bottom: 3%; right: 1%; max-width: 410px;}
-.introduzioneh a{color: rgb(198, 137, 24); text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000; color: rgb(198, 137, 24)}
-.bottoneh{
+.introduzioneh{text-align: center;text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000; color: cyan;position: absolute; bottom: 3%; right: 1%; max-width: 410px;}
+.introduzioneh a{color: cyan; text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;}
+.bottone_azzurro{
     padding: 5px; 
-    border: 5px solid rgb(198, 137, 24);
+    border: 5px solid cyan;
+    background: rgb(11, 121, 164);
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.bottone_azzurro:hover{background: cyan; border: 5px solid rgb(11, 121, 164); transform: translateY(-10px);} 
+.bottone_azzurro:hover a{color: rgb(11, 121, 164);}
+.spostamentosx{left: 1%;}
+.colorito_giallo{color: orange;}
+.colorito_giallo a{color: orange;}
+.bottone_giallo{
+    padding: 5px; 
+    border: 5px solid orange;
     background: yellow;
     transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
-
 }
-.bottoneh:hover{background: rgb(198, 137, 24); border: 5px solid yellow;} 
-.bottoneh:hover a{color: yellow;}
+.bottone_giallo:hover{background: orange; border: 5px solid yellow; transform: translateY(-10px);} 
+.bottone_giallo:hover a{color: yellow;}
+
 @media(max-width: 900px){
     .introduzioneh{font-size: 10px; max-width: 300px;}
 }
