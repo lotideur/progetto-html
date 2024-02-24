@@ -1,0 +1,157 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial;
+}
+@font-face {
+    font-family: "Fancy Cursive";
+    src: url(fonts/Allura-Regular.ttf);
+}
+
+/* TOGLIE IL FASTIDIOSO BORDO ATTORNO ALLA PAGINA */
+body{padding: 0;margin: 0;}
+
+
+/* BARRA BIANCA SUPERIORE CON LOGO */
+.white_stripe{background: white;height: 50px;}
+/* BARRA GRIGIA CON BOTTONI NAVIGAZIONE */
+.nav_stripe{
+    background: rgb(40,40,40);
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+.nav_button{width: 200px;}
+.nav_button a{
+    width: 100%; height: 100%;
+    color: lightgray;
+    text-decoration: none;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav_button:hover{background: rgb(60,60,60);}
+/* SPIEGAZIONE DELLE PRECEDENTI RIGHE: "nav_stripe" contiene i "nav_button" (con l'hover) che
+a loro volta contengono dei link che occupano il 100% delle dimensioni. Per centrare il testo, ai link si aggiunge
+un "<p>" che, grazie al flexbox del link, si centra
+
+"nav_strip" flexa "nav_button" che ha "<a>" che flexa "<p>" */
+
+
+/* BANDIERA (SFONDO VIOLA PER ORA) */
+#banner{
+    background: purple;
+    width: auto;
+    height: 550px;
+}
+#banner > img{
+    position: absolute;
+    object-fit:cover;
+    width: 100%; height: 100%;
+    /* display: none; */
+}
+/* DIV PER IL TITOLO */
+#banner__title{
+    /* background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.44870448179271705) 50%, rgba(0,0,0,0.6980042016806722) 100%); */
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#banner__title__fade{
+    display: inline-block;
+    position: absolute;
+    width: 100%; height: 550px;
+    /* object-fit: cover; */
+    filter: opacity(80%);
+    /* filter:url(); */
+}
+/* TITOLO (UN'IMMAGINE) */
+#banner__title__title{
+    width: 700px;
+    height: 200px;
+    object-fit: cover;
+    transform: translateY(18px);
+}
+#banner__title p{
+    font-family: Fancy Cursive;
+    font-size: 40px;
+    transform: translateY(-18px);
+    
+    color: white;
+}
+/* SPIEGAZIONE DELLE PRECEDENTI RIGHE: "banner" è alto 550px e con "position: relative" gli piazziamo "banner_title" dentro.
+"banner_title" ha le stesse dimensioni di "banner" e ha un flex che centra "banner_title img" e altro
+
+"banner" contiene "banner_title" che flexa "banner_title img" e altro */
+
+
+#whats_jojo h2, #stands h2, #parts h2,
+#whats_jojo p, #stands p, #parts p{margin: 0px;}
+
+
+main{overflow-x: hidden;}
+#gallery{
+    background: black;
+    height: 550px;
+    position: relative;
+    
+    white-space: nowrap;
+    width: 10000px;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+
+    animation: gallery_slide 16s infinite linear;
+}
+.gallery__picture{
+    display: inline-block;
+
+    width: 450px;
+    height: 542px;
+    margin: 4px 2px;
+
+    background: lightblue;
+}
+@keyframes gallery_slide{
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(-1816px);}
+}
+
+#whats_jojo{
+    background: blue;
+    height: 550px;
+}
+
+
+#stands{
+    background: red;
+    height: 550px;
+}
+
+
+#parts{
+    background: blue;
+    height: 550px;
+}
+
+
+footer{
+    background: rgb(20,20,20);
+    color: gray;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p{
+    margin: 0;
+    font-size: 14px;
+} /* FARE COME BLENDER */
