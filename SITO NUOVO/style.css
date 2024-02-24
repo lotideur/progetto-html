@@ -9,7 +9,11 @@
 @font-face{
     font-family: "Jojo";
     src: url(fonts/Naganoshi.otf);
+}@font-face{
+    font-family: "Regista";
+    src: url(fonts/DemoRegista400.otf);
 }
+
 html{background: rgb(10,10,10);}
 
 /* TOGLIE IL FASTIDIOSO BORDO ATTORNO ALLA PAGINA */
@@ -101,20 +105,27 @@ un "<p>" che, grazie al flexbox del link, si centra
 
 /* BANDIERA (SFONDO VIOLA PER ORA) */
 #banner{
+    position: relative;
+
     background: purple;
     width: auto;
-    height: 550px;
+    height: 650px;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
 }
 #banner > img{
-    position: absolute;
-    object-fit:cover;
-    width: 100%; height: auto;
+    /* position: absolute; */
+    /* display: inline-block; */
+    object-fit: cover;
+    height: 100%;
     /* display: none; */
 }
 /* DIV PER IL TITOLO */
 #banner__title{
-    /* background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.44870448179271705) 50%, rgba(0,0,0,0.6980042016806722) 100%); */
+    /* background: red; */
+    /* background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.44870448179271705) 50%, rgba(0,0,0,0.6980042016806722) 100%); */
+    position: absolute;
+    top: 0px;
 
     width: 100%;
     height: 100%;
@@ -123,12 +134,13 @@ un "<p>" che, grazie al flexbox del link, si centra
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* display: none; */
 }
 #banner__title__fade{
     display: inline-block;
     position: absolute;
-    width: 100%; height: 550px;
-    object-fit: cover;
+    height: 100%; width: 100%;
+    /* object-fit: cover; */
     filter: opacity(80%);
     /* filter:url(); */
 }
@@ -169,25 +181,56 @@ main{overflow-x: hidden;}
     overflow-y: hidden;
     display: flex;
 
-    animation: gallery_slide 16s infinite linear;
+    
+    /* transform: translateX(-3682px); */
+    animation: gallery_slide 32s infinite linear;
 }
 .gallery__picture{
     display: inline-block;
 
-    width: 450px;
+    width: 650px;
     height: 542px;
-    margin: 4px 2px;
+    margin: 4px 6px;
 
     background: lightblue;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.gallery__picture img{
+    height: 100%;
+    object-fit: cover;
 }
 @keyframes gallery_slide{
     0% {transform: translateX(0px);}
-    100% {transform: translateX(-1816px);}
+    100% {transform: translateX(-5958px);}
 }
+
+.gallery__picture--1 img{transform: translateX(-100px);}
+.gallery__picture--2 img{transform: translateX(-200px);}
+.gallery__picture--3 img{transform: translateX(-150px);}
+.gallery__picture--4 img{transform: translateX(-120px);}
+.gallery__picture--5 img{transform: translateX(-300px);}
+.gallery__picture--6 img{transform: translateX(-50px);}
+.gallery__picture--7 img{transform: translateX(-150px);}
+.gallery__picture--8 img{transform: translateX(-200px);}
+.gallery__picture--9 img{transform: translateX(-280px);}
 
 #whats_jojo{
     background: blue;
-    height: 550px;
+    height: 600px;
+
+    display: flex;
+}
+#whats_jojo__left{
+    width: 40%;
+    background: purple;
+}
+#whats_jojo__right{
+    width: 60%;
+    background: yellow;
+
+    /* rotate: 20deg; */
 }
 
 
@@ -198,7 +241,7 @@ main{overflow-x: hidden;}
 
 
 #parts{
-    background: black;
+    background: white;
     height: 650px;
 
     overflow-x: hidden;
@@ -207,7 +250,7 @@ main{overflow-x: hidden;}
     display: flex;
     flex-direction: column;
 }
-#parts h2{text-align: center; height: 10%; margin-bottom: 0px; padding-bottom: 0px; color: white;}
+#parts h2{text-align: center; height: 10%; margin-bottom: 0px; padding-bottom: 0px; color: black;}
 #parts__cards{
     height: 90%;
     /* background-color: white; */
@@ -219,25 +262,38 @@ main{overflow-x: hidden;}
 .parts__cards__card{
     width: 16%;
     background: gray;
-    border: 5px solid white;
+    border: 5px solid black;
 
     transition: all 0.1s ease-out;
     position: relative;
 
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 .parts__cards__card a{
     display: block;
     width: 100%; height: 100%;
-}
-.parts__cards__card:hover{
-    transform: scale(1.05) translateY(-10px);
+
+    transition: all 0.15s ease-out;
 }
 .parts__cards__card a img{
     display: inline-block;
-    height: 100%;
+    height: 110%;
     position: absolute;
-    transform: translateX(-50px);
+    transform: translateX(-80px);
+    filter: brightness(50%) saturate(0);
+
+    transition: all 0.15s ease-out;
+}
+.parts__cards__card:hover{
+    transform: scale(1.05) translateY(-10px);/* rotate(-1deg); */
+}
+.parts__cards__card:hover a img{
+    height: 120%;
+    filter: brightness(100%) saturate(1);
+
+}.parts__cards__card:hover a{
+    transform: rotate(3deg);
 }
 
 .parts__cards__card:nth-child(1){background: yellow;}
@@ -246,6 +302,13 @@ main{overflow-x: hidden;}
 .parts__cards__card:nth-child(4){background: fuchsia;}
 .parts__cards__card:nth-child(5){background: yellow;}
 .parts__cards__card:nth-child(6){background: orange;}
+
+.parts__cards__card:nth-child(1) a img{transform: translateX(-80px) translateY(-10px)}
+.parts__cards__card:nth-child(2) a img{transform: translateX(-80px);}
+.parts__cards__card:nth-child(3) a img{transform: translateX(-90px);}
+.parts__cards__card:nth-child(4) a img{transform: translateX(-80px);}
+.parts__cards__card:nth-child(5) a img{transform: translateX(-60px);}
+.parts__cards__card:nth-child(6) a img{transform: translateX(-80px);}
 
 footer{
     background: rgb(20,20,20);
