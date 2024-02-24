@@ -198,8 +198,8 @@ main{overflow-x: hidden;}
 
 
 #parts{
-    background: white;
-    height: 550px;
+    background: black;
+    height: 650px;
 
     overflow-x: hidden;
     overflow-y: hidden;
@@ -207,7 +207,7 @@ main{overflow-x: hidden;}
     display: flex;
     flex-direction: column;
 }
-#parts h2{text-align: center; height: 10%; margin-bottom: 0px;}
+#parts h2{text-align: center; height: 10%; margin-bottom: 0px; padding-bottom: 0px; color: white;}
 #parts__cards{
     height: 90%;
     /* background-color: white; */
@@ -218,10 +218,13 @@ main{overflow-x: hidden;}
 }
 .parts__cards__card{
     width: 16%;
-    background: red;
-    border: 5px solid black;
+    background: gray;
+    border: 5px solid white;
 
     transition: all 0.1s ease-out;
+    position: relative;
+
+    overflow-x: hidden;
 }
 .parts__cards__card a{
     display: block;
@@ -230,6 +233,19 @@ main{overflow-x: hidden;}
 .parts__cards__card:hover{
     transform: scale(1.05) translateY(-10px);
 }
+.parts__cards__card a img{
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    transform: translateX(-50px);
+}
+
+.parts__cards__card:nth-child(1){background: yellow;}
+.parts__cards__card:nth-child(2){background: green;}
+.parts__cards__card:nth-child(3){background: blue;}
+.parts__cards__card:nth-child(4){background: fuchsia;}
+.parts__cards__card:nth-child(5){background: yellow;}
+.parts__cards__card:nth-child(6){background: orange;}
 
 footer{
     background: rgb(20,20,20);
@@ -238,6 +254,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top: 2px solid black;
 }
 footer p{
     margin: 0;
