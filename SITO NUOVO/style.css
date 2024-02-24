@@ -194,8 +194,9 @@ main{overflow-x: hidden;}
 
     background: lightblue;
 
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
+
+    border: 5px solid white;
 }
 .gallery__picture img{
     height: 100%;
@@ -203,34 +204,31 @@ main{overflow-x: hidden;}
 }
 @keyframes gallery_slide{
     0% {transform: translateX(0px);}
-    100% {transform: translateX(-5958px);}
+    100% {transform: translateX(-3972px);}
 }
 
-.gallery__picture--1 img{transform: translateX(-100px);}
-.gallery__picture--2 img{transform: translateX(-200px);}
-.gallery__picture--3 img{transform: translateX(-150px);}
-.gallery__picture--4 img{transform: translateX(-120px);}
-.gallery__picture--5 img{transform: translateX(-300px);}
-.gallery__picture--6 img{transform: translateX(-50px);}
-.gallery__picture--7 img{transform: translateX(-150px);}
-.gallery__picture--8 img{transform: translateX(-200px);}
-.gallery__picture--9 img{transform: translateX(-280px);}
+.gallery__picture--1 img{transform: translateX(-150px);}
+.gallery__picture--2 img{transform: translateX(-120px);}
+.gallery__picture--3 img{transform: translateX(-300px);}
+.gallery__picture--4 img{transform: translateX(-50px);}
+.gallery__picture--5 img{transform: translateX(-150px);}
+.gallery__picture--6 img{transform: translateX(-150px);}
+
 
 #whats_jojo{
-    background: blue;
+    background: rgb(0, 149, 255);
     height: 600px;
-
-    display: flex;
+    position: relative;
+    overflow: hidden;
 }
-#whats_jojo__left{
-    width: 40%;
-    background: purple;
+#whats_jojo img{
+    height: 100%;
+    padding: 40px;
+    padding-bottom: 0px;
+    position: absolute;
 }
-#whats_jojo__right{
-    width: 60%;
-    background: yellow;
-
-    /* rotate: 20deg; */
+#whats_jojo img:nth-child(2){
+    right: 0px;
 }
 
 
@@ -291,8 +289,8 @@ main{overflow-x: hidden;}
 .parts__cards__card:hover a img{
     height: 120%;
     filter: brightness(100%) saturate(1);
-
-}.parts__cards__card:hover a{
+}
+.parts__cards__card:hover a{
     transform: rotate(3deg);
 }
 
@@ -309,6 +307,44 @@ main{overflow-x: hidden;}
 .parts__cards__card:nth-child(4) a img{transform: translateX(-80px);}
 .parts__cards__card:nth-child(5) a img{transform: translateX(-60px);}
 .parts__cards__card:nth-child(6) a img{transform: translateX(-80px);}
+
+.parts__cards__card:hover a img:nth-child(1){
+    transform: translateX(-120px);
+}
+.parts__cards__card__tag{
+    width: 0%;
+    height: 20%;
+    background: white;
+    /* filter: opacity(80%); */
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    overflow: hidden;
+
+    position: absolute;
+    bottom: 40px;
+
+    transition: all 0.1s ease-out;
+
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+.parts__cards__card__tag p{
+    color: black;
+    /* filter: opacity(100%); */
+    min-width: 10px; max-width: 10px;
+    /* text-align: center; */
+    font-family: Regista;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.parts__cards__card:hover .parts__cards__card__tag{
+    width: 120%;
+}
+
+.parts__cards__card:nth-child(4) p{min-width: 200px; margin-left: 35px;}
+.parts__cards__card:nth-child(5) p{margin-left: 70px;}
+.parts__cards__card:nth-child(6) p{margin-left: 80px;}
 
 footer{
     background: rgb(20,20,20);
