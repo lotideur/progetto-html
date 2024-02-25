@@ -347,15 +347,19 @@ main{overflow-x: hidden;}
 .parts__cards__card:nth-child(6){background: orange;}
 
 .parts__cards__card:nth-child(1) a img{transform: translateX(-80px) translateY(-10px)}
-.parts__cards__card:nth-child(2) a img{transform: translateX(-80px);}
-.parts__cards__card:nth-child(3) a img{transform: translateX(-90px);}
-.parts__cards__card:nth-child(4) a img{transform: translateX(-80px);}
-.parts__cards__card:nth-child(5) a img{transform: translateX(-60px);}
-.parts__cards__card:nth-child(6) a img{transform: translateX(-80px);}
+.parts__cards__card:nth-child(2) a img{transform: translateX(-20%);}
+.parts__cards__card:nth-child(3) a img{transform: translateX(-25%);}
+.parts__cards__card:nth-child(4) a img{transform: translateX(-20%);}
+.parts__cards__card:nth-child(5) a img{transform: translateX(-20%);}
+.parts__cards__card:nth-child(6) a img{transform: translateX(-25%);}
 
-.parts__cards__card:hover a img:nth-child(1){
-    transform: translateX(-120px);
-}
+.parts__cards__card:nth-child(1):hover a img:nth-child(1){transform: translateX(-120px);}
+.parts__cards__card:nth-child(2):hover a img:nth-child(1){transform: translateX(-130px);}
+.parts__cards__card:nth-child(3):hover a img:nth-child(1){transform: translateX(-170px);}
+.parts__cards__card:nth-child(4):hover a img:nth-child(1){transform: translateX(-130px);}
+.parts__cards__card:nth-child(5):hover a img:nth-child(1){transform: translateX(-120px);}
+.parts__cards__card:nth-child(6):hover a img:nth-child(1){transform: translateX(-140px);}
+
 .parts__cards__card__tag{
     width: 0%;
     height: 20%;
@@ -444,7 +448,7 @@ footer p{
 } /* FARE COME BLENDER */
 
 
-@media (max-width: 1200px){
+@media (max-width: 1130px){
     /* .white_stripe p{font-size: 20px;} */
     /* .white_stripe{justify-content: space-between;} */
     /* .white_stripe .logo:first-child{margin-left: 0px;} */
@@ -468,6 +472,10 @@ footer p{
 
     .scroll_button{display: block;}
     .scroll_button--right{right: 50%;}
+
+    .parts__cards__card:nth-child(5) a img{transform: translateX(0%);}
+    .parts__cards__card:nth-child(6) a img{transform: translateX(-20%);}
+    .parts__cards__card:nth-child(5):hover a img:nth-child(1){transform: translateX(-40px);}
 }
 @media (max-width: 767px){
     .white_stripe p{font-size: 20px;}
