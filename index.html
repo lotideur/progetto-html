@@ -82,32 +82,32 @@
                 <img src="immagini/fade.png" alt="">
                 <h2>Seleziona una parte</h2>
                 <div class="parts__cards">
-                    <div class="parts__cards__card"><a href="pagine/part1.html">
+                    <div class="parts__cards__card"><a>
                         <img src="immagini/johnathan_mugshot_shadow.png" alt="">
                         <img src="immagini/jonathan_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Phantom Blood</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="">
+                    <div class="parts__cards__card"><a>
                         <img src="immagini/joseph_mugshot_shadow.png" alt="">
                         <img src="immagini/joseph_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Battle Tendency</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="">
+                    <div class="parts__cards__card"><a>
                         <img src="immagini/jotaro_mugshot_shadow.png" alt="">
                         <img src="immagini/jotaro_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Stardust Crusaders</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="">
+                    <div class="parts__cards__card"><a>
                         <img src="immagini/josuke_mugshot_shadow.png" alt="">
                         <img src="immagini/josuke_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Diamond is Unbreakable</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="">
+                    <div class="parts__cards__card"><a>
                         <img src="immagini/giorno_mugshot_shadow.png" alt="">
                         <img src="immagini/giorno_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Golden Wind</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="">
+                    <div class="parts__cards__card"><a>
                         <img src="immagini/jolyne_mugshot_shadow.png" alt="">
                         <img src="immagini/jolyne_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Stone Ocean</p></div>
@@ -137,6 +137,7 @@
             var parts_scroll_index = 0
             var max_scroll_index = 2
             var parts_cards = $("#parts").find(".parts__cards")
+            var parts_title = $("#parts").find("h2")
 
             nav.find(".nav_button").on("click", function(){
                 var nav_button = $(this);
@@ -178,9 +179,9 @@
                 var left = (100 / (max_scroll_index+1)) * parts_scroll_index;
                 if (max_scroll_index == 0){left = 0;}
                 
-                console.log(left);
                 parts_cards.css({left: -left + "%"});
-                
+                parts_title.css({width: 100/(max_scroll_index+1) + "%"})
+
                 if (window.innerWidth < 1130){
                     if (parts_scroll_index != max_scroll_index){
                         scroll_button_right.css({display: "block"});
