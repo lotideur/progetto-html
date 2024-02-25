@@ -553,6 +553,10 @@ footer p{
         object-fit: cover;
         height: 100%;
     }
+
+    .araki__1{bottom: 0;}
+    .araki__2{display: none;}
+    .araki__box{left: 20%;}
 }
 @media (max-width: 1130px){
     .parts__cards__card__tag p{font-size: 36px;}
@@ -592,6 +596,12 @@ footer p{
 
     #other_title{display: none;}
     #gallery{display: none;}
+
+    .araki__1{left: 50%; transform: translateX(-50%);}
+    .araki__fade{z-index: 1;}
+    .araki__box{left: 0; z-index: 2; position: relative; height: 100%;}
+    .araki__box p{width: 80%; position: absolute; bottom: 20%;}
+    .araki__box h2{padding: 0 20px;}
 
     #parts{width: 300%;}
 
