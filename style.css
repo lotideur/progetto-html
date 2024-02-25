@@ -368,7 +368,7 @@ main{overflow-x: hidden;}
 
 
 #stands{
-    height: 250px;
+    /* height: 250px; */
     width: 100%;
     background: rgb(20,20,20);
     padding: 40px 0px;
@@ -379,7 +379,6 @@ main{overflow-x: hidden;}
     /* position: relative; */
     width: 30%;
     z-index: 1;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -419,6 +418,25 @@ main{overflow-x: hidden;}
     /* transform: translateY(10px); */
 }
 
+/*La parte che ho aggiunto*/
+.descrizione_stand{
+    width: 90%;
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.immagine_paragrafo{
+    border: 1px solid yellow;
+    width: 30%;
+    margin: 0 5% 5% 5%;
+    height: auto;
+    max-height: 300px;
+    overflow: hidden;
+}
+.paragrafo_stand{
+    width: 60%;
+}
 
 #parts{
     background: rgb(0, 149, 255);
