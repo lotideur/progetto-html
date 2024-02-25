@@ -28,9 +28,9 @@
             <div class="nav_stripe">
                 <div class="category_text"><p>Categorie</p></div>
                 <div class="category_text"><p> > </p></div>
-                <div class="nav_button"><a href=""><p>Jojo</p></a></div>
-                <div class="nav_button"><a href=""><p>Gli Stand</p></a></div>
-                <div class="nav_button"><a href="#parts"><p>Parti</p></a></div>
+                <div class="nav_button" id="nb1"><a><p>Jojo</p></a></div>
+                <div class="nav_button" id="nb2"><a><p>Gli Stand</p></a></div>
+                <div class="nav_button" id="nb3"><a><p>Parti</p></a></div>
             </div>
         </header>
 
@@ -59,8 +59,12 @@
                 <div class="gallery__picture gallery__picture--3"><img src="immagini/giorno.jpg" alt=""></div>
             </div>
 
-            <div id="whats_jojo">
+            <div class="whats_jojo">
                 <img src="immagini/araki_shadow1.png" alt="">
+                <div class="whats_jojo__box">
+                    <h2>Hirohiko Araki</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maxime atque voluptatum sequi numquam animi molestiae vero provident! Veniam illo unde a enim laudantium reiciendis, quasi itaque nam dolorem consectetur.</p>
+                </div>
                 <img src="immagini/araki_shadow2.png" alt="">
             </div>
 
@@ -106,9 +110,58 @@
             </div>
         </main>
 
+        <div class="gototop">
+            <img src="immagini/gototop_shadow.png" alt="">
+        </div>
+
         <footer>
             <p>Authors | F. Banani, L. Sambo</p>
         </footer>
+
+
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+
+            var nav = $(".nav_stripe");
+            var gototop = $(".gototop");
+            var whats_jojo = $(".whats_jojo")
+
+            nav.find(".nav_button").on("click", function(){
+                var nav_button = $(this);
+
+                nav.find(".nav_button").removeClass("nav_button--active");
+                nav_button.addClass("nav_button--active");
+            });
+
+            window.onscroll = function(){
+                nav.removeClass("nav_stripe--scroll");
+                if (window.scrollY > 50){
+                    nav.addClass("nav_stripe--scroll");
+                }
+
+                if (window.scrollY > 200){
+                    if (!gototop.hasClass("gototop--show")){
+                        gototop.addClass("gototop--show");
+                    }
+                } else if (window.scrollY <= 200 && gototop.hasClass("gototop--show")){
+                    gototop.removeClass("gototop--show");
+                    console.log("REMOVE");
+                }
+
+                if (window.scrollY > 1100){
+                    if (!whats_jojo.hasClass("whats_jojo--show")){
+                        whats_jojo.addClass("whats_jojo--show");
+                    }
+                }
+            };
+
+            gototop.on("click", function(){
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+        })
+
+        </script>
 
     </div>
 </body>

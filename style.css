@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
     font-family: Arial;
+    user-select: none;
 }
 @font-face {
     font-family: "Fancy Cursive";
@@ -23,6 +24,8 @@ body{padding: 0;margin: 0;}
 header{
     display: flex;
     flex-direction: column;
+
+    position: relative;
 }
 /* BARRA BIANCA SUPERIORE CON LOGO */
 .white_stripe{
@@ -58,8 +61,13 @@ header{
     justify-content: center;
     border-bottom: 2px solid black;
 
-    /* position: absolute; */
-    /* top: 50px; */
+    position: absolute;
+    top: 50px;
+    z-index: 99;
+}
+.nav_stripe--scroll{
+    position: fixed;
+    top: 0px;
 }
 .category_text{
     padding: 0px 15px;
@@ -72,13 +80,18 @@ header{
 .nav_button{
     /* width: 100px; */
     /* padding: 0px 15px; */
+    color: lightgray;
     transition: all 0.1s linear;
+    cursor: pointer;
+}
+.nav_button--active{
+    color: rgb(0, 149, 255);
+    border-bottom: 3px solid rgb(0, 149, 255);
 }
 .nav_button a{
     font-size: 15px;
     width: 100%; height: 100%;
     padding: 0px 15px;
-    color: lightgray;
     text-decoration: none;
     display: block;
     display: flex;
@@ -91,11 +104,8 @@ header{
 }
 .nav_button:hover p{
     color: rgb(0, 149, 255);
-    /* border-bottom: 2px solid white; */
 }
-.nav_button:hover{
-    border-bottom: 2px solid rgb(0, 149, 255);
-}
+
 /* SPIEGAZIONE DELLE PRECEDENTI RIGHE: "nav_stripe" contiene i "nav_button" (con l'hover) che
 a loro volta contengono dei link che occupano il 100% delle dimensioni. Per centrare il testo, ai link si aggiunge
 un "<p>" che, grazie al flexbox del link, si centra
@@ -110,14 +120,15 @@ un "<p>" che, grazie al flexbox del link, si centra
     background: purple;
     width: auto;
     height: 650px;
+    text-align: center;
     /* overflow-x: hidden;
     overflow-y: hidden; */
 }
 #banner > img{
-    /* position: absolute; */
-    /* display: inline-block; */
+    position: absolute;
     object-fit: cover;
     height: 100%;
+    transform: translateX(-50%);
     /* display: none; */
 }
 /* DIV PER IL TITOLO */
@@ -215,20 +226,37 @@ main{overflow-x: hidden;}
 .gallery__picture--6 img{transform: translateX(-150px);}
 
 
-#whats_jojo{
+.whats_jojo{
     background: rgb(0, 149, 255);
     height: 600px;
     position: relative;
     overflow: hidden;
 }
-#whats_jojo img{
+.whats_jojo img{
     height: 100%;
     padding: 40px;
     padding-bottom: 0px;
     position: absolute;
+    bottom: -400px;
+
+    transition: all 0.5s ease-out;
 }
-#whats_jojo img:nth-child(2){
+.whats_jojo img:nth-child(3){
     right: 0px;
+    /* bottom: -450px; */
+}
+.whats_jojo--show img{
+    bottom: 0px;
+}
+.whats_jojo__box{
+    width: 40%;
+    margin: auto;
+}
+.whats_jojo__box h2{
+    text-align: center;
+    color: white;
+    font-family: Fancy Cursive;
+    font-size: 78px;
 }
 
 
@@ -345,6 +373,29 @@ main{overflow-x: hidden;}
 .parts__cards__card:nth-child(4) p{min-width: 200px; margin-left: 35px;}
 .parts__cards__card:nth-child(5) p{margin-left: 70px;}
 .parts__cards__card:nth-child(6) p{margin-left: 80px;}
+
+
+.gototop{
+    /* background: red; */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 40px; height: 40px;
+    transform: scale(0);
+
+    transition: all 0.2s ease-in-out;
+}
+.gototop--show{
+    transform: scale(1);
+}
+.gototop img{
+    /* object-fit: cover; */
+    height: 100%;
+    cursor: pointer;
+}
+.gototop--show:hover{
+    transform: scale(1.2);
+}
 
 footer{
     background: rgb(20,20,20);
