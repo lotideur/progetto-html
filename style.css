@@ -15,11 +15,15 @@
     src: url(fonts/DemoRegista400.otf);
 }
 
-html{background: rgb(10,10,10);}
+html{background: white;}
 
 /* TOGLIE IL FASTIDIOSO BORDO ATTORNO ALLA PAGINA */
 body{padding: 0;margin: 0;}
 
+.page_container{
+    max-width: 1600px;
+    position: relative;
+}
 
 header{
     display: flex;
@@ -278,6 +282,37 @@ main{overflow-x: hidden;}
 .gallery__picture--5 img{transform: translateX(-150px);}
 
 
+#plot{
+    height: 300px;
+    width: 100%;
+    background: rgb(20,20,20);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0px;
+    justify-content: center;
+}
+#plot h2{
+    margin: 0;
+    max-width: 70%;
+    font-family: Arial;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    padding: 5px; margin-bottom: 20px;
+    /* transform: translateY(10px); */
+}
+#plot p{
+    margin: 0;
+    max-width: 80%;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    padding: 5px;
+    /* transform: translateY(10px); */
+}
+
+
 .araki{
     background: rgb(0, 149, 255);
     height: 600px;
@@ -333,8 +368,55 @@ main{overflow-x: hidden;}
 
 
 #stands{
-    background: red;
-    height: 650px;
+    height: 250px;
+    width: 100%;
+    background: rgb(20,20,20);
+    padding: 40px 0px;
+    display: flex;
+    justify-content: space-around;
+}
+#stands__img{
+    /* position: relative; */
+    width: 30%;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#stands__img img{
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    /* position: absolute; */
+    /* left: 70%; top: 50%; */
+    /* transform: translate(-50%, -50%); */
+}
+#stands__box{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#stands__box h2{
+    margin: 0;
+    width: 80%;
+    font-family: Arial;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    transform: translateY(10px);
+}
+#stands__box p{
+    margin: 0;
+    max-width: 80%;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    padding: 5px;
+    /* transform: translateY(10px); */
 }
 
 
@@ -575,11 +657,30 @@ footer p{
     .araki__box p{width: 80%; position: absolute; bottom: 20%;}
     .araki__box h2{padding: 0 20px;}
 
+    #plot{height: 280px;}
+    #plot h2{font-size: 20px;}
+    #plot p{font-size: 16px;}
+    
+    #stands{height: 220px;}
+    #stands__box{width: 80%;}
+    #stands h2{font-size: 20px; text-align: end; margin-bottom: 10px;}
+    #stands p{font-size: 16px; text-align: end;}
+    #stands__img img{
+        width: 200px;
+        height: 200px;
+    }
+
     #parts{width: 300%;}
 
     .scroll_button--right{right: 67%;}
 }
+@media (max-width: 550px){
+    #other_title h2{font-size: 18px;}
+    #other_title img{height: 150%;}
+}
 @media (max-width: 500px){
     #parts{height: 450px;}
     .parts__cards__card__tag p{font-size: 28px;}
+
+    #parts h2{font-size: 38px;}
 }
