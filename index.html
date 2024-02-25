@@ -35,36 +35,42 @@
 
         <main>
             <div id="banner">
-                <img src="immagini/banner14.png" alt="">
+                <img src="immagini/giorno_bleeding.jpg" alt="">
+                <img src="immagini/chariotrequiem.jpg" alt="">
+                <img src="immagini/fade.png" alt="" id="banner__title__fade">
 
                 <div id="banner__title">
-                    <img src="immagini/fade.png" alt="" id="banner__title__fade">
                     <img src="immagini/title_fancy.png" alt="" id="banner__title__title">
                     <p>"I, Giorno Giovanna, have a dream..."</p>
                 </div>
             </div>
+
+            <div id="other_title">
+                <img src="immagini/logo_english.png" alt="">
+                <h2>Le bizzarre avventure di JoJo</h2>
+            </div>
             
             <div id="gallery">
-                <div class="gallery__picture gallery__picture--1"><img src="immagini/chariotrequiem.jpg" alt=""></div>
-                <div class="gallery__picture gallery__picture--2"><img src="immagini/emporio.webp" alt=""></div>
-                <div class="gallery__picture gallery__picture--3"><img src="immagini/giorno.jpg" alt=""></div>
-                <div class="gallery__picture gallery__picture--4"><img src="immagini/doppio.jpg" alt=""></div>
-                <div class="gallery__picture gallery__picture--5"><img src="immagini/dio_part6.jpg" alt=""></div>
-                <div class="gallery__picture gallery__picture--6"><img src="immagini/jotaro_disk.jpg" alt=""></div>
+                <div class="gallery__picture gallery__picture--1"><img src="immagini/emporio.webp" alt=""></div>
+                <div class="gallery__picture gallery__picture--2"><img src="immagini/giorno.jpg" alt=""></div>
+                <div class="gallery__picture gallery__picture--3"><img src="immagini/doppio.jpg" alt=""></div>
+                <div class="gallery__picture gallery__picture--4"><img src="immagini/dio_part6.jpg" alt=""></div>
+                <div class="gallery__picture gallery__picture--5"><img src="immagini/jotaro_disk.jpg" alt=""></div>
 
                 <!-- DUPLICATI PER IL LOOP -->
-                <div class="gallery__picture gallery__picture--1"><img src="immagini/chariotrequiem.jpg" alt=""></div>
-                <div class="gallery__picture gallery__picture--2"><img src="immagini/emporio.webp" alt=""></div>
-                <div class="gallery__picture gallery__picture--3"><img src="immagini/giorno.jpg" alt=""></div>
+                <div class="gallery__picture gallery__picture--1"><img src="immagini/emporio.webp" alt=""></div>
+                <div class="gallery__picture gallery__picture--2"><img src="immagini/giorno.jpg" alt=""></div>
+                <div class="gallery__picture gallery__picture--3"><img src="immagini/doppio.jpg" alt=""></div>
             </div>
 
-            <div class="whats_jojo">
-                <img src="immagini/araki_shadow1.png" alt="">
-                <div class="whats_jojo__box">
+            <div class="araki">
+                <img src="immagini/fade.png" alt="" class="araki__fade">
+                <img src="immagini/araki_shadow1.png" alt="" class="araki__1">
+                <div class="araki__box">
                     <h2>Hirohiko Araki</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque maxime atque voluptatum sequi numquam animi molestiae vero provident! Veniam illo unde a enim laudantium reiciendis, quasi itaque nam dolorem consectetur.</p>
                 </div>
-                <img src="immagini/araki_shadow2.png" alt="">
+                <img src="immagini/araki_shadow2.png" alt="" class="araki__2">
             </div>
 
             <div id="stands">
@@ -73,6 +79,7 @@
             </div>
             
             <div id="parts">
+                <img src="immagini/fade.png" alt="">
                 <h2>Seleziona una parte</h2>
                 <div class="parts__cards">
                     <div class="parts__cards__card"><a href="pagine/part1.html">
@@ -124,7 +131,7 @@
 
             var nav = $(".nav_stripe");
             var gototop = $(".gototop");
-            var whats_jojo = $(".whats_jojo")
+            var araki = $(".araki")
             var scroll_button_right = $("#parts").find(".scroll_button--right")
             var scroll_button_left = $("#parts").find(".scroll_button--left")
             var parts_scroll_index = 0
@@ -154,8 +161,8 @@
                 }
 
                 if (window.scrollY > 1100){
-                    if (!whats_jojo.hasClass("whats_jojo--show")){
-                        whats_jojo.addClass("whats_jojo--show");
+                    if (!araki.hasClass("araki--show")){
+                        araki.addClass("araki--show");
                     }
                 }
             };
@@ -165,54 +172,36 @@
             });
             
             function apply_index(){
-                scroll_button_right.css({transform: "scale(1)"})
-                scroll_button_left.css({transform: "scale(1)"})
-                
-                // for (let i=0; i<=max_scroll_index; i++){
-                //     if (parts_scroll_index == i){
-                        
-                //     }
-                // }
+                scroll_button_right.css({display: "none"});
+                scroll_button_left.css({display: "none"});
 
                 var left = (100 / (max_scroll_index+1)) * parts_scroll_index;
-                if (max_scroll_index == 0){left = 0}
-                // console.log(left)
-                // var left = toString(int(left)) + "%"
-                // parts_cards.css({left: left + "%"})
-                console.log(left)
-                parts_cards.css({left: -left + "%"})
+                if (max_scroll_index == 0){left = 0;}
                 
-                scroll_button_left.css({transform: "scale(1)"})
-                scroll_button_right.css({transform: "scale(1)"})
-                if (parts_scroll_index == max_scroll_index){
-                    scroll_button_right.css({transform: "scale(0)"})
-                }else if (parts_scroll_index == 0){
-                    scroll_button_left.css({transform: "scale(0)"})
+                console.log(left);
+                parts_cards.css({left: -left + "%"});
+                
+                if (window.innerWidth < 1130){
+                    if (parts_scroll_index != max_scroll_index){
+                        scroll_button_right.css({display: "block"});
+                    }
+                    if (parts_scroll_index != 0){
+                        scroll_button_left.css({display: "block"});
+                    }
                 }
-                // if (parts_scroll_index == 0){
-                //     parts_cards.css({left:"0%"});
-                //     scroll_button_left.css({transform: "scale(0)"})
-                // }
-                // else if (parts_scroll_index == 1){
-                //     parts_cards.css({left:"-33.3%"});
-                // }
-                // else if (parts_scroll_index == 2){
-                //     parts_cards.css({left:"-66.6%"});
-                //     scroll_button_right.css({transform: "scale(0)"})
-                // }
-                }
-            apply_index()
+            }
+            // apply_index();
 
             window.onresize = function(){
                 if (window.innerWidth < 1130){
-                    max_scroll_index = 1
+                    max_scroll_index = 1;
                     if (window.innerWidth < 768){
-                        max_scroll_index = 2
+                        max_scroll_index = 2;
                     }
-                    if (parts_scroll_index > max_scroll_index){parts_scroll_index = max_scroll_index}
-                    console.log(max_scroll_index)
-                }else{max_scroll_index = 0}
-                apply_index()
+                    if (parts_scroll_index > max_scroll_index){parts_scroll_index = max_scroll_index;}
+                    console.log(max_scroll_index);
+                }else{max_scroll_index = 0;}
+                apply_index();
             }
 
             scroll_button_right.on("click", function(){
