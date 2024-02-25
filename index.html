@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jojo's Bizzare Adventure FanMade</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Heebo:400,700" type="text/css"> -->
 </head>
 
 <body>
@@ -75,8 +74,8 @@
             
             <div id="parts">
                 <h2>Seleziona una parte</h2>
-                <div id="parts__cards">
-                    <div class="parts__cards__card"><a href="">
+                <div class="parts__cards">
+                    <div class="parts__cards__card"><a href="pagine/part1.html">
                         <img src="immagini/johnathan_mugshot_shadow.png" alt="">
                         <img src="immagini/jonathan_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Phantom Blood</p></div>
@@ -107,12 +106,12 @@
                         <div class="parts__cards__card__tag"><p>Stone Ocean</p></div>
                     </a></div>
                 </div>
+                <div class="scroll_button scroll_button--left"><img src="immagini/gototop_shadow.png" alt=""></div>
+                <div class="scroll_button scroll_button--right"><img src="immagini/gototop_shadow.png" alt=""></div>
             </div>
         </main>
 
-        <div class="gototop">
-            <img src="immagini/gototop_shadow.png" alt="">
-        </div>
+        <div class="gototop"><img src="immagini/gototop_shadow.png" alt=""></div>
 
         <footer>
             <p>Authors | F. Banani, L. Sambo</p>
@@ -126,6 +125,11 @@
             var nav = $(".nav_stripe");
             var gototop = $(".gototop");
             var whats_jojo = $(".whats_jojo")
+            var scroll_button_right = $("#parts").find(".scroll_button--right")
+            var scroll_button_left = $("#parts").find(".scroll_button--left")
+            var parts_scroll_index = 0
+            var max_scroll_index = 2
+            var parts_cards = $("#parts").find(".parts__cards")
 
             nav.find(".nav_button").on("click", function(){
                 var nav_button = $(this);
@@ -155,9 +159,74 @@
                     }
                 }
             };
-
+            
             gototop.on("click", function(){
                 window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+            
+            function apply_index(){
+                scroll_button_right.css({transform: "scale(1)"})
+                scroll_button_left.css({transform: "scale(1)"})
+                
+                // for (let i=0; i<=max_scroll_index; i++){
+                //     if (parts_scroll_index == i){
+                        
+                //     }
+                // }
+
+                var left = (100 / (max_scroll_index+1)) * parts_scroll_index;
+                if (max_scroll_index == 0){left = 0}
+                // console.log(left)
+                // var left = toString(int(left)) + "%"
+                // parts_cards.css({left: left + "%"})
+                console.log(left)
+                parts_cards.css({left: -left + "%"})
+                
+                scroll_button_left.css({transform: "scale(1)"})
+                scroll_button_right.css({transform: "scale(1)"})
+                if (parts_scroll_index == max_scroll_index){
+                    scroll_button_right.css({transform: "scale(0)"})
+                }else if (parts_scroll_index == 0){
+                    scroll_button_left.css({transform: "scale(0)"})
+                }
+                // if (parts_scroll_index == 0){
+                //     parts_cards.css({left:"0%"});
+                //     scroll_button_left.css({transform: "scale(0)"})
+                // }
+                // else if (parts_scroll_index == 1){
+                //     parts_cards.css({left:"-33.3%"});
+                // }
+                // else if (parts_scroll_index == 2){
+                //     parts_cards.css({left:"-66.6%"});
+                //     scroll_button_right.css({transform: "scale(0)"})
+                // }
+                }
+            apply_index()
+
+            window.onresize = function(){
+                if (window.innerWidth < 1200){
+                    max_scroll_index = 1
+                    if (window.innerWidth < 768){
+                        max_scroll_index = 2
+                    }
+                    if (parts_scroll_index > max_scroll_index){parts_scroll_index = max_scroll_index}
+                    console.log(max_scroll_index)
+                }else{max_scroll_index = 0}
+                apply_index()
+            }
+
+            scroll_button_right.on("click", function(){
+                if (parts_scroll_index < max_scroll_index){
+                    parts_scroll_index += 1;
+                    apply_index();
+                }
+            });
+
+            scroll_button_left.on("click", function(){
+                if (parts_scroll_index > 0){
+                    parts_scroll_index -= 1;
+                    apply_index();
+                }
             });
         })
 

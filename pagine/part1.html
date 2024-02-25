@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jojo's Bizzare Adventure FanMade: Phantom Blood</title>
+    <link rel="stylesheet" href="../css/part1_style.css">
+</head>
+
+<body>
+    <div class="page_container">
+
+        <header>
+            <div class="white_stripe">
+                <div class="logo">
+                    <img src="../immagini/logo_english.png" alt="">
+                </div>
+
+                <p>ジョジョの奇妙な冒険</p>
+
+                <div class="logo">
+                    <img src="../immagini/logo.png" alt="">
+                </div>
+            </div>
+
+            <div class="nav_stripe">
+                <div class="category_text"><p>Categorie</p></div>
+                <div class="category_text"><p> > </p></div>
+                <div class="nav_button" id="nb1"><a><p>Jojo</p></a></div>
+                <div class="nav_button" id="nb2"><a><p>Gli Stand</p></a></div>
+                <div class="nav_button" id="nb3"><a><p>Parti</p></a></div>
+            </div>
+        </header>
+
+        <main>
+            <div id="parts">
+                <h2>Seleziona una parte</h2>
+                <div id="parts__cards">
+                    <div class="parts__cards__card"><a href="">
+                        <img src="../immagini/johnathan_mugshot_shadow.png" alt="">
+                        <img src="../immagini/jonathan_mugshot1.png" alt="">
+                        <div class="parts__cards__card__tag"><p>Phantom Blood</p></div>
+                    </a></div>
+                    <div class="parts__cards__card"><a href="">
+                        <img src="../immagini/joseph_mugshot_shadow.png" alt="">
+                        <img src="../immagini/joseph_mugshot1.png" alt="">
+                        <div class="parts__cards__card__tag"><p>Battle Tendency</p></div>
+                    </a></div>
+                    <div class="parts__cards__card"><a href="">
+                        <img src="../immagini/jotaro_mugshot_shadow.png" alt="">
+                        <img src="../immagini/jotaro_mugshot1.png" alt="">
+                        <div class="parts__cards__card__tag"><p>Stardust Crusaders</p></div>
+                    </a></div>
+                    <div class="parts__cards__card"><a href="">
+                        <img src="../immagini/josuke_mugshot_shadow.png" alt="">
+                        <img src="../immagini/josuke_mugshot1.png" alt="">
+                        <div class="parts__cards__card__tag"><p>Diamond is Unbreakable</p></div>
+                    </a></div>
+                    <div class="parts__cards__card"><a href="">
+                        <img src="../immagini/giorno_mugshot_shadow.png" alt="">
+                        <img src="../immagini/giorno_mugshot1.png" alt="">
+                        <div class="parts__cards__card__tag"><p>Golden Wind</p></div>
+                    </a></div>
+                    <div class="parts__cards__card"><a href="">
+                        <img src="../immagini/jolyne_mugshot_shadow.png" alt="">
+                        <img src="../immagini/jolyne_mugshot1.png" alt="">
+                        <div class="parts__cards__card__tag"><p>Stone Ocean</p></div>
+                    </a></div>
+                </div>
+            </div>
+        </main>
+
+        <div class="gototop">
+            <img src="../immagini/gototop_shadow.png" alt="">
+        </div>
+
+        <footer>
+            <p>Authors | F. Banani, L. Sambo</p>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+
+            var nav = $(".nav_stripe");
+            var gototop = $(".gototop");
+            var whats_jojo = $(".whats_jojo")
+
+            nav.find(".nav_button").on("click", function(){
+                var nav_button = $(this);
+
+                nav.find(".nav_button").removeClass("nav_button--active");
+                nav_button.addClass("nav_button--active");
+            });
+
+            window.onscroll = function(){
+                nav.removeClass("nav_stripe--scroll");
+                if (window.scrollY > 50){
+                    nav.addClass("nav_stripe--scroll");
+                }
+
+                if (window.scrollY > 200){
+                    if (!gototop.hasClass("gototop--show")){
+                        gototop.addClass("gototop--show");
+                    }
+                } else if (window.scrollY <= 200 && gototop.hasClass("gototop--show")){
+                    gototop.removeClass("gototop--show");
+                    console.log("REMOVE");
+                }
+            };
+
+            gototop.on("click", function(){
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+        })
+
+        </script>
+
+    </div>
+</body>
+
+</html>

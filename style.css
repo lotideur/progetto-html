@@ -126,9 +126,10 @@ un "<p>" che, grazie al flexbox del link, si centra
 }
 #banner > img{
     position: absolute;
-    object-fit: cover;
+    /* object-fit: cover; */
     height: 100%;
     transform: translateX(-50%);
+    
     /* display: none; */
 }
 /* DIV PER IL TITOLO */
@@ -212,6 +213,13 @@ main{overflow-x: hidden;}
 .gallery__picture img{
     height: 100%;
     object-fit: cover;
+
+    transition: all 0.2s ease-in-out;
+}
+.gallery__picture:hover img{
+    /* transform: scale(1.001); */
+    height: 105%;
+    /* rotate: -1deg; */
 }
 @keyframes gallery_slide{
     0% {transform: translateX(0px);}
@@ -251,10 +259,10 @@ main{overflow-x: hidden;}
 .whats_jojo__box{
     width: 40%;
     margin: auto;
+    color: white;
 }
 .whats_jojo__box h2{
     text-align: center;
-    color: white;
     font-family: Fancy Cursive;
     font-size: 78px;
 }
@@ -270,21 +278,31 @@ main{overflow-x: hidden;}
     background: white;
     height: 650px;
 
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
+
+    position: relative;
 }
 #parts h2{text-align: center; height: 10%; margin-bottom: 0px; padding-bottom: 0px; color: black;}
-#parts__cards{
+.parts__cards{
+    width: 100%;
     height: 90%;
     /* background-color: white; */
-    margin: 10px;
 
     display: flex;
     justify-content: space-evenly;
+    position: absolute;
+    bottom: 10px;
+    padding: 5px;
+
+    /* left: 100%; */
+
+    transition: all 0.3s ease-out;
+    /* left: 50px; */
 }
+.parts_cards--positioner{left: 0px;}
 .parts__cards__card{
     width: 16%;
     background: gray;
@@ -293,8 +311,7 @@ main{overflow-x: hidden;}
     transition: all 0.1s ease-out;
     position: relative;
 
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 .parts__cards__card a{
     display: block;
@@ -374,9 +391,24 @@ main{overflow-x: hidden;}
 .parts__cards__card:nth-child(5) p{margin-left: 70px;}
 .parts__cards__card:nth-child(6) p{margin-left: 80px;}
 
+.scroll_button{
+    position: absolute;
+    width: 50px; height: 50px;
+    top: 54%;
+    display: none;
+
+    transition: all 0.2s ease-in-out;
+}
+.scroll_button img{height: 100%; cursor: pointer;}
+.scroll_button--right{
+    right: 67%;
+    rotate: 90deg;
+}.scroll_button--left{
+    left: 5px;
+    rotate: -90deg;
+}
 
 .gototop{
-    /* background: red; */
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -410,3 +442,55 @@ footer p{
     margin: 0;
     font-size: 14px;
 } /* FARE COME BLENDER */
+
+
+@media (max-width: 1200px){
+    /* .white_stripe p{font-size: 20px;} */
+    /* .white_stripe{justify-content: space-between;} */
+    /* .white_stripe .logo:first-child{margin-left: 0px;} */
+
+    /* .nav_stripe .category_text{display: none;} */
+
+    /* #banner{height: 300px;} */
+    /* #banner__title__title{width: 300px; height: 100px;} */
+    /* #banner__title p{display: none;} */
+
+    /* #gallery{display: none;} */
+
+    .whats_jojo__box{width: 100%;}
+    .whats_jojo__box h2{font-size: 60px; margin: 20px;}
+    .whats_jojo__box p{margin: 40px; margin-right: 200px;}
+    
+    .whats_jojo img:nth-child(1){bottom: 0; height: 80%; right: -100px;}
+    .whats_jojo img:nth-child(3){display: none;}
+
+    #parts{width: 200%;}
+
+    .scroll_button{display: block;}
+    .scroll_button--right{right: 50%;}
+}
+@media (max-width: 767px){
+    .white_stripe p{font-size: 20px;}
+    .white_stripe{justify-content: space-between;}
+    .white_stripe .logo:first-child{margin-left: 0px;}
+
+    .nav_stripe .category_text{display: none;}
+
+    #banner{height: 300px;}
+    #banner__title__title{width: 300px; height: 100px;}
+    #banner__title p{display: none;}
+
+    #gallery{display: none;}
+
+    /* .whats_jojo__box{width: 100%;} */
+    /* .whats_jojo__box h2{font-size: 60px; margin: 20px;} */
+    /* .whats_jojo__box p{margin: 40px; margin-right: 200px;} */
+    
+    /* .whats_jojo img:nth-child(1){bottom: 0; height: 80%; right: -100px;} */
+    /* .whats_jojo img:nth-child(3){display: none;} */
+
+    #parts{width: 300%;}
+
+    /* .scroll_button{display: block;} */
+    .scroll_button--right{right: 67%;}
+}
