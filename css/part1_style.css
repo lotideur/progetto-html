@@ -15,11 +15,16 @@
     src: url(../fonts/DemoRegista400.otf);
 }
 
-html{background: rgb(10,10,10);}
+html{background: white;}
 
 /* TOGLIE IL FASTIDIOSO BORDO ATTORNO ALLA PAGINA */
 body{padding: 0;margin: 0;}
 
+.page_container{
+    max-width: 1600px;
+    position: relative;
+    overflow-x: hidden;
+}
 
 header{
     display: flex;
@@ -37,7 +42,7 @@ header{
     align-items: center;
 }
 .white_stripe .logo:first-child{
-    margin-left: 200px;
+    margin-left: 50px;
 }
 .logo{
     margin: 0px 0px;
@@ -59,6 +64,7 @@ header{
     height: 40px;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-bottom: 2px solid black;
 
     position: absolute;
@@ -78,8 +84,7 @@ header{
     align-items: center;
 }
 .nav_button{
-    /* width: 100px; */
-    /* padding: 0px 15px; */
+    height: 100%;
     color: lightgray;
     transition: all 0.1s linear;
     cursor: pointer;
@@ -106,31 +111,111 @@ header{
     color: rgb(0, 149, 255);
 }
 
-/* SPIEGAZIONE DELLE PRECEDENTI RIGHE: "nav_stripe" contiene i "nav_button" (con l'hover) che
-a loro volta contengono dei link che occupano il 100% delle dimensioni. Per centrare il testo, ai link si aggiunge
-un "<p>" che, grazie al flexbox del link, si centra
 
-"nav_strip" flexa "nav_button" che ha "<a>" che flexa "<p>" */
+.donate_button{
+    background-color: rgb(0, 149, 255);
+    color: white;
+    transition: all 0.1s linear;
+    cursor: pointer;
+    width: 100px;
+    height: 70%;
+    right: 300px;
+    margin-left: 50px;
+    /* position: absolute; */
+}
+/* .donate_button--active{
+    color: rgb(0, 149, 255);
+    border-bottom: 3px solid rgb(0, 149, 255);
+} */
+.donate_button a{
+    font-size: 15px;
+    width: 100%; height: 100%;
+    padding: 0px 15px;
+    text-decoration: none;
+    display: block;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+.donate_button p{
+    margin: 0;
+    transition: all 0.1s linear;
+}
+.donate_button img{
+    width: 30%;
+}
+.donate_button:hover{
+    background: rgb(107, 193, 255);
+}
+
+
+#tv{
+    background: rgb(0,62,106);
+    background: linear-gradient(180deg, rgba(0,62,106,1) 0%, rgba(0,149,255,1) 100%);
+
+    height: 650px;
+}
+#tv__img{
+    /* background: red; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#tv__img img{
+    width: 100%;
+    max-width: 900px;
+    object-fit: fill;
+    transform: translateY(3%);
+}
+#tv__img video{
+    position: absolute;
+    width: 100%;
+    max-width: 900px;
+    object-fit: cover;
+    transform: scale(0.841) translateY(-8%);
+}
+
 
 #parts{
-    background: white;
-    height: 650px;
+    background: rgb(0, 149, 255);
+    height: 600px;
 
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
+
+    position: relative;
 }
-#parts h2{text-align: center; height: 10%; margin-bottom: 0px; padding-bottom: 0px; color: black;}
-#parts__cards{
-    height: 90%;
-    /* background-color: white; */
-    margin: 10px;
+#parts h2{
+    text-align: center;
+    height: 15%;
+    padding: 10px 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    color: white;
+    font-family: Fancy Cursive;
+    font-size: 54px;
+    z-index: 1;
+}
+.parts__cards{
+    width: 100%;
+    height: 85%;
 
     display: flex;
     justify-content: space-evenly;
+    position: absolute;
+    bottom: 10px;
+    padding: 5px;
+
+    transition: all 0.3s ease-out;
 }
+.parts_cards--positioner{left: 0px;}
 .parts__cards__card{
     width: 16%;
     background: gray;
@@ -139,8 +224,9 @@ un "<p>" che, grazie al flexbox del link, si centra
     transition: all 0.1s ease-out;
     position: relative;
 
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
+
+    cursor: pointer;
 }
 .parts__cards__card a{
     display: block;
@@ -158,7 +244,7 @@ un "<p>" che, grazie al flexbox del link, si centra
     transition: all 0.15s ease-out;
 }
 .parts__cards__card:hover{
-    transform: scale(1.05) translateY(-10px);/* rotate(-1deg); */
+    transform: scale(1.05) translateY(-10px);
 }
 .parts__cards__card:hover a img{
     height: 120%;
@@ -175,21 +261,24 @@ un "<p>" che, grazie al flexbox del link, si centra
 .parts__cards__card:nth-child(5){background: yellow;}
 .parts__cards__card:nth-child(6){background: orange;}
 
-.parts__cards__card:nth-child(1) a img{transform: translateX(-80px) translateY(-10px)}
-.parts__cards__card:nth-child(2) a img{transform: translateX(-80px);}
-.parts__cards__card:nth-child(3) a img{transform: translateX(-90px);}
-.parts__cards__card:nth-child(4) a img{transform: translateX(-80px);}
-.parts__cards__card:nth-child(5) a img{transform: translateX(-60px);}
-.parts__cards__card:nth-child(6) a img{transform: translateX(-80px);}
+.parts__cards__card:nth-child(1) a img{transform: translateX(-25%) translateY(-10px)}
+.parts__cards__card:nth-child(2) a img{transform: translateX(-20%);}
+.parts__cards__card:nth-child(3) a img{transform: translateX(-25%);}
+.parts__cards__card:nth-child(4) a img{transform: translateX(-20%);}
+.parts__cards__card:nth-child(5) a img{transform: translateX(-20%);}
+.parts__cards__card:nth-child(6) a img{transform: translateX(-25%);}
 
-.parts__cards__card:hover a img:nth-child(1){
-    transform: translateX(-120px);
-}
+.parts__cards__card:nth-child(1):hover a img:nth-child(1){transform: translateX(-120px);}
+.parts__cards__card:nth-child(2):hover a img:nth-child(1){transform: translateX(-130px);}
+.parts__cards__card:nth-child(3):hover a img:nth-child(1){transform: translateX(-170px);}
+.parts__cards__card:nth-child(4):hover a img:nth-child(1){transform: translateX(-130px);}
+.parts__cards__card:nth-child(5):hover a img:nth-child(1){transform: translateX(-120px);}
+.parts__cards__card:nth-child(6):hover a img:nth-child(1){transform: translateX(-140px);}
+
 .parts__cards__card__tag{
     width: 0%;
     height: 20%;
     background: white;
-    /* filter: opacity(80%); */
     border-top: 5px solid black;
     border-bottom: 5px solid black;
     overflow: hidden;
@@ -200,29 +289,48 @@ un "<p>" che, grazie al flexbox del link, si centra
     transition: all 0.1s ease-out;
 
     display: flex;
-    /* justify-content: center; */
     align-items: center;
 }
 .parts__cards__card__tag p{
     color: black;
-    /* filter: opacity(100%); */
-    min-width: 10px; max-width: 10px;
-    /* text-align: center; */
+    width: 100%;
+    text-align: center;
     font-family: Regista;
     font-size: 36px;
-    margin-left: 50px;
+    margin: 0px 40px;
 }
 .parts__cards__card:hover .parts__cards__card__tag{
     width: 120%;
+    transform: translateX(-10%);
+}
+#parts > img{
+    position: absolute;
+    width: 100%; height: 100%;
 }
 
-.parts__cards__card:nth-child(4) p{min-width: 200px; margin-left: 35px;}
-.parts__cards__card:nth-child(5) p{margin-left: 70px;}
-.parts__cards__card:nth-child(6) p{margin-left: 80px;}
+.scroll_button{
+    position: absolute;
+    width: 50px; height: 50px;
+    top: 54%;
+    display: none;
+    transform: scale(1);
+
+    transition: all 0.2s ease-in-out;
+}
+.scroll_button img{height: 100%; cursor: pointer;}
+.scroll_button--right{
+    right: 67%;
+    rotate: 90deg;
+}.scroll_button--left{
+    left: 5px;
+    rotate: -90deg;
+}
+.scroll_button:hover{
+    transform: scale(1.3);
+}
 
 
 .gototop{
-    /* background: red; */
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -235,7 +343,6 @@ un "<p>" che, grazie al flexbox del link, si centra
     transform: scale(1);
 }
 .gototop img{
-    /* object-fit: cover; */
     height: 100%;
     cursor: pointer;
 }
@@ -256,3 +363,90 @@ footer p{
     margin: 0;
     font-size: 14px;
 } /* FARE COME BLENDER */
+
+
+@media (max-width: 1400px){
+    .parts__cards__card__tag p{font-size: 28px;}
+}
+@media (max-width: 1150px){
+    #banner > img{
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .araki__1{bottom: 0;}
+    .araki__2{display: none;}
+    .araki__box{left: 20%;}
+}
+@media (max-width: 1200px){
+    #stands__img img:nth-child(2){display: none;}
+}
+@media (max-width: 1130px){
+
+    .parts__cards__card__tag p{font-size: 36px;}
+
+    #parts{width: 200%;}
+
+    .scroll_button{display: block;}
+    .scroll_button--right{right: 50%;}
+
+    .parts__cards__card:nth-child(1) a img{transform: translateX(0%) translateY(-10px)}
+    .parts__cards__card:nth-child(2) a img{transform: translateX(-10%);}
+    .parts__cards__card:nth-child(3) a img{transform: translateX(-5%);}
+    .parts__cards__card:nth-child(4) a img{transform: translateX(-5%);}
+    .parts__cards__card:nth-child(5) a img{transform: translateX(10%);}
+    .parts__cards__card:nth-child(6) a img{transform: translateX(0%);}
+    .parts__cards__card:nth-child(5):hover a img:nth-child(1){transform: translateX(-40px);}
+}
+@media (max-width: 767px){
+    .white_stripe p{font-size: 20px;}
+    .white_stripe{justify-content: space-between;}
+    .white_stripe .logo:first-child{margin-left: 0px;}
+
+    .nav_stripe .category_text{display: none;}
+    .nav_stripe .donate_button{display: none;}
+
+    #banner{height: 300px;}
+    #banner__title__title{width: 300px; height: 100px;}
+    #banner__title p{display: none;}
+
+    #other_title h2{font-size: 26px;}
+    #other_title {height: 50px; z-index: 3;}
+
+    /* #other_title{display: none;} */
+    #gallery{display: none;}
+
+    .araki__1{left: 50%; transform: translateX(-50%);}
+    .araki__fade{z-index: 1;}
+    .araki__box{left: 0; z-index: 2; position: relative; height: 100%;}
+    .araki__box p{width: 80%; position: absolute; bottom: 20%;}
+    .araki__box h2{padding: 0 20px;}
+
+    #plot{height: 280px;}
+    #plot h2{font-size: 20px;}
+    #plot p{font-size: 16px;}
+    
+    #stands{height: 220px;}
+    #stands__box{width: 80%;}
+    #stands h2{font-size: 20px; text-align: end; margin-bottom: 10px;}
+    #stands p{font-size: 16px; text-align: end;}
+    #stands__img img{
+        position: relative;
+        width: 200px;
+        height: 200px;
+    }
+
+    #parts{width: 300%;}
+
+    .scroll_button--right{right: 67%;}
+}
+@media (max-width: 550px){
+    #other_title h2{font-size: 18px;}
+    #other_title img{height: 150%;}
+}
+@media (max-width: 500px){
+    #parts{height: 450px;}
+    .parts__cards__card__tag p{font-size: 28px;}
+
+    #parts h2{font-size: 38px;}
+}

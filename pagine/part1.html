@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jojo's Bizzare Adventure FanMade: Phantom Blood</title>
+    <title>Jojo's Bizzare Adventure FanMade</title>
     <link rel="stylesheet" href="../css/part1_style.css">
 </head>
 
@@ -27,57 +27,69 @@
             <div class="nav_stripe">
                 <div class="category_text"><p>Categorie</p></div>
                 <div class="category_text"><p> > </p></div>
-                <div class="nav_button" id="nb1"><a><p>Jojo</p></a></div>
-                <div class="nav_button" id="nb2"><a><p>Gli Stand</p></a></div>
-                <div class="nav_button" id="nb3"><a><p>Parti</p></a></div>
+                <!-- <div class="nav_button"><a><p>Jojo</p></a></div> -->
+                <!-- <div class="nav_button"><a><p>Trama</p></a></div> -->
+                <!-- <div class="nav_button"><a><p>Autore</p></a></div> -->
+                <div class="nav_button"><a><p>Guarda</p></a></div>
+                <div class="nav_button"><a><p>Parti</p></a></div>
+                <!-- <div class="donate_button"><a href="https://web.spaggiari.eu/home/app/default/login.php"><p>Dona</p><img src="../immagini/heart.png" alt=""></a></div> -->
             </div>
         </header>
 
         <main>
+            <div id="tv">
+                <div id="tv__img">
+                    <img src="../immagini/tv.webp" alt="">
+                    <video src="../video/JoJo's Bizarre Adventure_ Phantom Blood Trailer.mp4" controls></video>
+                </div>
+            </div>
+
             <div id="parts">
+                <img src="../immagini/fade.png" alt="">
                 <h2>Seleziona una parte</h2>
-                <div id="parts__cards">
-                    <div class="parts__cards__card"><a href="">
+                <div class="parts__cards">
+                    <div class="parts__cards__card"><a>
                         <img src="../immagini/johnathan_mugshot_shadow.png" alt="">
                         <img src="../immagini/jonathan_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Phantom Blood</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="">
+                    <div class="parts__cards__card"><a>
                         <img src="../immagini/joseph_mugshot_shadow.png" alt="">
                         <img src="../immagini/joseph_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Battle Tendency</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="">
+                    <div class="parts__cards__card"><a>
                         <img src="../immagini/jotaro_mugshot_shadow.png" alt="">
                         <img src="../immagini/jotaro_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Stardust Crusaders</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="">
+                    <div class="parts__cards__card"><a>
                         <img src="../immagini/josuke_mugshot_shadow.png" alt="">
                         <img src="../immagini/josuke_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Diamond is Unbreakable</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="">
+                    <div class="parts__cards__card"><a>
                         <img src="../immagini/giorno_mugshot_shadow.png" alt="">
                         <img src="../immagini/giorno_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Golden Wind</p></div>
                     </a></div>
-                    <div class="parts__cards__card"><a href="">
+                    <div class="parts__cards__card"><a>
                         <img src="../immagini/jolyne_mugshot_shadow.png" alt="">
                         <img src="../immagini/jolyne_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Stone Ocean</p></div>
                     </a></div>
                 </div>
+                <div class="scroll_button scroll_button--left"><img src="../immagini/gototop_shadow.png" alt=""></div>
+                <div class="scroll_button scroll_button--right"><img src="../immagini/gototop_shadow.png" alt=""></div>
             </div>
         </main>
 
-        <div class="gototop">
-            <img src="../immagini/gototop_shadow.png" alt="">
-        </div>
+        <div class="gototop"><img src="../immagini/gototop_shadow.png" alt=""></div>
 
         <footer>
             <p>Authors | F. Banani, L. Sambo</p>
         </footer>
+
 
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script type="text/javascript">
@@ -85,13 +97,26 @@
 
             var nav = $(".nav_stripe");
             var gototop = $(".gototop");
-            var whats_jojo = $(".whats_jojo")
+            var araki = $(".araki")
+            var scroll_button_right = $("#parts").find(".scroll_button--right")
+            var scroll_button_left = $("#parts").find(".scroll_button--left")
+            var parts_scroll_index = 0
+            var max_scroll_index = 2
+            var parts_cards = $("#parts").find(".parts__cards")
+            var parts_title = $("#parts").find("h2")
+
+            // var y_scroll_positions = [0, $("#plot").position().top-200, araki.position().top-70, $("#stands").position().top-200, $("#parts").position().top-20]
 
             nav.find(".nav_button").on("click", function(){
                 var nav_button = $(this);
 
+                var index = nav_button.index()-2
+                // var y_pos = y_scroll_positions[index]
+
                 nav.find(".nav_button").removeClass("nav_button--active");
                 nav_button.addClass("nav_button--active");
+                
+                // window.scrollTo({top: y_pos, behavior: 'smooth'});
             });
 
             window.onscroll = function(){
@@ -109,9 +134,56 @@
                     console.log("REMOVE");
                 }
             };
-
+            
             gototop.on("click", function(){
                 window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+            
+            function apply_index(){
+                scroll_button_right.css({display: "none"});
+                scroll_button_left.css({display: "none"});
+
+                var left = (100 / (max_scroll_index+1)) * parts_scroll_index;
+                if (max_scroll_index == 0){left = 0;}
+                
+                parts_cards.css({left: -left + "%"});
+                parts_title.css({width: 100/(max_scroll_index+1) + "%"})
+
+                if (window.innerWidth < 1130){
+                    if (parts_scroll_index != max_scroll_index){
+                        scroll_button_right.css({display: "block"});
+                    }
+                    if (parts_scroll_index != 0){
+                        scroll_button_left.css({display: "block"});
+                    }
+                }
+            }
+            // apply_index();
+
+            window.onresize = function(){
+                if (window.innerWidth < 1130){
+                    max_scroll_index = 1;
+                    if (window.innerWidth < 768){
+                        max_scroll_index = 2;
+                    }
+                    if (parts_scroll_index > max_scroll_index){parts_scroll_index = max_scroll_index;}
+                    console.log(max_scroll_index);
+                }else{max_scroll_index = 0;}
+                apply_index();
+            }
+
+            scroll_button_right.on("click", function(){
+                if (parts_scroll_index < max_scroll_index){
+                    parts_scroll_index += 1;
+                    apply_index();
+                }
+            });
+
+            scroll_button_left.on("click", function(){
+                if (parts_scroll_index > 0){
+                    parts_scroll_index -= 1;
+                    apply_index();
+                }
             });
         })
 

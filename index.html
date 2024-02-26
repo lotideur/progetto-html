@@ -101,7 +101,7 @@
                 <img src="immagini/fade.png" alt="">
                 <h2>Seleziona una parte</h2>
                 <div class="parts__cards">
-                    <div class="parts__cards__card"><a>
+                    <div class="parts__cards__card"><a href="pagine/part1.html">
                         <img src="immagini/johnathan_mugshot_shadow.png" alt="">
                         <img src="immagini/jonathan_mugshot1.png" alt="">
                         <div class="parts__cards__card__tag"><p>Phantom Blood</p></div>
@@ -158,8 +158,6 @@
             var parts_cards = $("#parts").find(".parts__cards")
             var parts_title = $("#parts").find("h2")
 
-            // var target_scroll = -1
-
             var y_scroll_positions = [0, $("#plot").position().top-200, araki.position().top-70, $("#stands").position().top-200, $("#parts").position().top-20]
 
             nav.find(".nav_button").on("click", function(){
@@ -188,18 +186,8 @@
                     gototop.removeClass("gototop--show");
                     console.log("REMOVE");
                 }
-
-                // nav.children([0]).addClass("nav_button--active");
-                
-                // nav.find(".nav_button").removeClass("nav_button--active");
-                // for(const child of nav.children([0])){
-                //     if (child.index-2 == nav_index){
-                //         child.item(nav_index).addClass("nav_button--active");
-                //     }
-                // }
                 
                 if (window.scrollY > 1400){
-                    // console.log
                     if (!araki.hasClass("araki--show")){
                         araki.addClass("araki--show");
                     }
