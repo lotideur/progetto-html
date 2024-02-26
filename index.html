@@ -27,9 +27,12 @@
             <div class="nav_stripe">
                 <div class="category_text"><p>Categorie</p></div>
                 <div class="category_text"><p> > </p></div>
-                <div class="nav_button" id="nb1"><a><p>Jojo</p></a></div>
-                <div class="nav_button" id="nb2"><a><p>Gli Stand</p></a></div>
-                <div class="nav_button" id="nb3"><a><p>Parti</p></a></div>
+                <div class="nav_button"><a><p>Jojo</p></a></div>
+                <div class="nav_button"><a><p>Trama</p></a></div>
+                <div class="nav_button"><a><p>Autore</p></a></div>
+                <div class="nav_button"><a><p>Stand</p></a></div>
+                <div class="nav_button"><a><p>Parti</p></a></div>
+                <div class="donate_button"><a href="https://web.spaggiari.eu/home/app/default/login.php"><p>Dona</p><img src="immagini/heart.png" alt=""></a></div>
             </div>
         </header>
 
@@ -67,7 +70,7 @@
                 <h2>Un racconto coinvolgente, colmo di avventure inaspettate e bizzarre</h2>
                 
                 <p>La storia narra l'epopea del casato Joestar in lotta contro il potente e malvagio vampiro Dio Brando.</p>
-                <p>Le conseguenze delle sue azioni attraverso un arco temporale che oltrepassa i secoli.</p>
+                <p>Le conseguenze delle sue azioni attraversano un arco temporale che oltrepassa i secoli.</p>
             </div>
 
             <div class="araki">
@@ -83,21 +86,14 @@
             </div>
 
             <div id="stands">
-                <!-- <div id="stands__img"><img src="immagini/notoriousbig.webp" alt=""></div> -->
+                <div id="stands__img">
+                    <img src="immagini/notoriousbig.webp" alt="">
+                    <img src="immagini/clash.webp" alt="">
+                </div>
                 <div id="stands__box">
                     <h2>Un power system unico nel suo genere</h2>
                     
-                    <p>Stand, un'entità generata psichicamente dal suo proprietario. Possiede abilità superiori che, a seconda del portatore, possono essere brandite per il bene o per il male.</p>
-
-                    <div class="descrizione_stand">
-                        <div class="immagine_paragrafo">
-                            <img src="immagini/starplatinum.png" alt="">
-                        </div>
-                        <div class="paragrafo_stand">Star Platinum Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem provident assumenda quod laboriosam velit.</div>
-                        <div class="paragrafo_stand">Star Platinum Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem provident assumenda quod laboriosam velit.</div>
-                        <div class="immagine_paragrafo"><img src="immagini/jotaro_mugshot1.png" alt=""></div>
-                    </div>
-
+                    <p>Stand, un'entità generata psichicamente dal suo proprietario. Possiede abilità sovrumane che, a seconda del portatore, possono essere brandite per il bene o per il male.</p>
                 </div>
             </div>
             
@@ -162,11 +158,20 @@
             var parts_cards = $("#parts").find(".parts__cards")
             var parts_title = $("#parts").find("h2")
 
+            // var target_scroll = -1
+
+            var y_scroll_positions = [0, $("#plot").position().top-200, araki.position().top-70, $("#stands").position().top-200, $("#parts").position().top-20]
+
             nav.find(".nav_button").on("click", function(){
                 var nav_button = $(this);
 
+                var index = nav_button.index()-2
+                var y_pos = y_scroll_positions[index]
+
                 nav.find(".nav_button").removeClass("nav_button--active");
                 nav_button.addClass("nav_button--active");
+                
+                window.scrollTo({top: y_pos, behavior: 'smooth'});
             });
 
             window.onscroll = function(){
@@ -184,7 +189,17 @@
                     console.log("REMOVE");
                 }
 
-                if (window.scrollY > 1100){
+                // nav.children([0]).addClass("nav_button--active");
+                
+                // nav.find(".nav_button").removeClass("nav_button--active");
+                // for(const child of nav.children([0])){
+                //     if (child.index-2 == nav_index){
+                //         child.item(nav_index).addClass("nav_button--active");
+                //     }
+                // }
+                
+                if (window.scrollY > 1400){
+                    // console.log
                     if (!araki.hasClass("araki--show")){
                         araki.addClass("araki--show");
                     }

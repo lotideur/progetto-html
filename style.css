@@ -63,6 +63,7 @@ header{
     height: 40px;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-bottom: 2px solid black;
 
     position: absolute;
@@ -82,8 +83,7 @@ header{
     align-items: center;
 }
 .nav_button{
-    /* width: 100px; */
-    /* padding: 0px 15px; */
+    height: 100%;
     color: lightgray;
     transition: all 0.1s linear;
     cursor: pointer;
@@ -108,6 +108,45 @@ header{
 }
 .nav_button:hover p{
     color: rgb(0, 149, 255);
+}
+
+
+.donate_button{
+    background-color: rgb(0, 149, 255);
+    color: white;
+    transition: all 0.1s linear;
+    cursor: pointer;
+    width: 100px;
+    height: 70%;
+    right: 300px;
+    margin-left: 50px;
+    /* position: absolute; */
+}
+/* .donate_button--active{
+    color: rgb(0, 149, 255);
+    border-bottom: 3px solid rgb(0, 149, 255);
+} */
+.donate_button a{
+    font-size: 15px;
+    width: 100%; height: 100%;
+    padding: 0px 15px;
+    text-decoration: none;
+    display: block;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+.donate_button p{
+    margin: 0;
+    transition: all 0.1s linear;
+}
+.donate_button img{
+    width: 30%;
+}
+.donate_button:hover{
+    background: rgb(107, 193, 255);
 }
 
 /* SPIEGAZIONE DELLE PRECEDENTI RIGHE: "nav_stripe" contiene i "nav_button" (con l'hover) che
@@ -242,8 +281,6 @@ main{overflow-x: hidden;}
     overflow-y: hidden;
     display: flex;
 
-    
-    /* transform: translateX(-3682px); */
     animation: gallery_slide 32s infinite linear;
 }
 .gallery__picture{
@@ -368,7 +405,7 @@ main{overflow-x: hidden;}
 
 
 #stands{
-    /* height: 250px; */
+    height: 250px;
     width: 100%;
     background: rgb(20,20,20);
     padding: 40px 0px;
@@ -379,6 +416,7 @@ main{overflow-x: hidden;}
     /* position: relative; */
     width: 30%;
     z-index: 1;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -387,9 +425,20 @@ main{overflow-x: hidden;}
     width: 300px;
     height: 300px;
     object-fit: contain;
-    /* position: absolute; */
+    position: absolute;
     /* left: 70%; top: 50%; */
     /* transform: translate(-50%, -50%); */
+    /* animation: img_rot 2s infinite ease-in-out, img_scale 3s infinite ease-in-out; */
+}
+#stands__img img:nth-child(1){
+    left: 30px;
+}
+#stands__img img:nth-child(2){
+    left: 80px;
+    /* transform: scaleX(-1); */
+    width: 400px;
+    height: 400px;
+    /* animation: img_rot 2.5s infinite ease-in-out, img_scale 2.5s infinite ease-in-out; */
 }
 #stands__box{
     width: 70%;
@@ -417,26 +466,17 @@ main{overflow-x: hidden;}
     padding: 5px;
     /* transform: translateY(10px); */
 }
+@keyframes img_rot{
+    0% {rotate: -5deg;}
+    50% {rotate: 5deg;}
+    100% {rotate: -5deg;}
+}
+@keyframes img_scale{
+    0% {}
+    50% {scale: 1.1;}
+    100% {}
+}
 
-/*La parte che ho aggiunto*/
-.descrizione_stand{
-    width: 90%;
-    border: 1px solid red;
-    display: flex;
-    flex-wrap: wrap;
-
-}
-.immagine_paragrafo{
-    border: 1px solid yellow;
-    width: 30%;
-    margin: 0 5% 5% 5%;
-    height: auto;
-    max-height: 300px;
-    overflow: hidden;
-}
-.paragrafo_stand{
-    width: 60%;
-}
 
 #parts{
     background: rgb(0, 149, 255);
@@ -636,7 +676,11 @@ footer p{
     .araki__2{display: none;}
     .araki__box{left: 20%;}
 }
+@media (max-width: 1200px){
+    #stands__img img:nth-child(2){display: none;}
+}
 @media (max-width: 1130px){
+
     .parts__cards__card__tag p{font-size: 36px;}
 
     #parts{width: 200%;}
@@ -658,6 +702,7 @@ footer p{
     .white_stripe .logo:first-child{margin-left: 0px;}
 
     .nav_stripe .category_text{display: none;}
+    .nav_stripe .donate_button{display: none;}
 
     #banner{height: 300px;}
     #banner__title__title{width: 300px; height: 100px;}
@@ -684,6 +729,7 @@ footer p{
     #stands h2{font-size: 20px; text-align: end; margin-bottom: 10px;}
     #stands p{font-size: 16px; text-align: end;}
     #stands__img img{
+        position: relative;
         width: 200px;
         height: 200px;
     }
